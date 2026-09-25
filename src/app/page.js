@@ -4,10 +4,10 @@ import { useState, useEffect } from 'react';
 
 export default function Home() {
   const heroImages = [
-    '/hero-bg-image_03.png',
-    '/hero-bg-image_04.png',
-    '/hero-bg-image_05.png',
-    '/hero-bg-image_06.png'
+    '/hero_01.png',
+    '/hero_02.png',
+    '/hero_03.png',
+    '/hero_04.png'
   ];
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -102,8 +102,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="section-divider"></div>
+      {/* Hero Progress Bar */}
+      <div className="hero-progress-bar">
+        {heroImages.map((_, index) => (
+          <div 
+            key={index}
+            className={`hero-progress-segment ${index <= currentSlide ? 'active' : ''}`}
+          ></div>
+        ))}
+      </div>
 
       {/* About Section */}
       <section id="about-us" className="section about-section">
@@ -161,7 +168,7 @@ export default function Home() {
               </div>
             </div>
             <div className="about-image-wrapper">
-              <img src="/about-section-right-img.png" alt="Bhawani Machines Facility" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '12px', boxShadow: '0 20px 40px rgba(0,0,0,0.08)' }} />
+              <img src="/about-section-right-img_01.png" alt="Bhawani Machines Facility" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '12px', boxShadow: '0 20px 40px rgba(0,0,0,0.08)' }} />
             </div>
           </div>
         </div>

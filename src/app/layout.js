@@ -15,6 +15,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" />
       </head>
       <body className={`${inter.className} ${playfair.variable}`}>
         <Navbar />
@@ -36,7 +37,7 @@ function Footer() {
         {/* Column 1: Brand & SEO */}
         <div className="footer-col footer-brand">
           <a href="/" className="footer-logo">
-            <img src="/logo.png" alt="Bhawani Machines Logo" />
+            <img src="/logo_01.png" alt="Bhawani Machines Logo" />
           </a>
           <p className="seo-description">
             Bhawani Machines is a leading manufacturer of premium Industrial Food Processing and Packaging Machinery in Pune, India. We deliver reliable and customized plant solutions.
@@ -85,7 +86,7 @@ function Footer() {
           <h4>Find Us Here</h4>
           <div className="map-responsive">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d121058.93187091694!2d73.79292695509935!3d18.524761375330372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.7425920506394!2d73.83819287518995!3d18.449992882629886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc29581d19b7859%3A0xe3610222a5eb9ba!2sBHAWANI%20MACHINES!5e0!3m2!1sen!2sin!4v1790319640041!5m2!1sen!2sin" 
               width="100%" 
               height="200" 
               style={{ border: 0 }} 
@@ -99,7 +100,10 @@ function Footer() {
 
       </div>
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} Bhawani Machines. All Rights Reserved.</p>
+        <div className="container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px' }}>
+          <p>&copy; {new Date().getFullYear()} Bhawani Machines. All Rights Reserved.</p>
+          <p>Developed By <a href="https://mindaxisinnovation.com/" target="_blank" rel="noopener noreferrer">MindAxis Innovation Pvt Ltd.</a></p>
+        </div>
       </div>
     </footer>
   );

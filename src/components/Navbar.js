@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeCategory, setActiveCategory] = useState('packaging');
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -39,76 +40,211 @@ export default function Navbar() {
         <nav className="navbar">
           <div className="header-container nav-container">
             <Link href="/" className="logo">
-              <img src="/logo.png" alt="Bhawani Machines Logo" style={{ height: '70px', width: 'auto' }} />
+              <img src="/logo_01.png" alt="Bhawani Machines Logo" style={{ height: '70px', width: 'auto' }} />
             </Link>
             
             {/* Desktop Navigation */}
             <div className="nav-links desktop-only">
               <Link href="/" className="active">Home</Link>
               <Link href="/about">About Us</Link>
+              
+              {/* Product Mega Menu Dropdown */}
               <div className="dropdown">
-                <Link href="/products">Products <i className="fas fa-chevron-down dropdown-icon"></i></Link>
+                <span className="nav-dropdown-trigger" style={{ cursor: 'pointer' }}>
+                  Products <i className="fas fa-chevron-down dropdown-icon"></i>
+                </span>
+                
                 <div className="dropdown-content">
-                  <div className="header-container mega-menu-container">
-                    {/* Column 1 */}
-                    <div className="mega-menu-col">
-                      <div className="mega-menu-col-header">01</div>
-                      <div className="mega-menu-col-title">PACKAGING</div>
-                      <ul className="mega-menu-list">
-                        <li className="nested-dropdown">
-                          <Link href="#" style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
-                            <i className="fas fa-box-open mega-menu-icon"></i> Filling Machine <i className="fas fa-angle-right" style={{ marginLeft: 'auto', fontSize: '0.8rem', color: '#a0aec0' }}></i>
-                          </Link>
-                          <div className="nested-dropdown-content">
-                            <Link href="/filling-machine">Particle - Table Type</Link>
-                            <Link href="/large-particle-filling-machine">Particle - Floor Standing</Link>
-                            <Link href="/powder-filling-machine">Powder Type</Link>
-                            <Link href="/liquid-filling-machine">Liquid - Digital</Link>
-                            <Link href="/pneumatic-liquid-filling-machine">Liquid - Pneumatic</Link>
-                            <Link href="/paste-filling-machine">Paste Type</Link>
+                  <div className="mega-menu-wrapper">
+                    {/* Left Category Sidebar Selector */}
+                    <div className="mega-menu-sidebar">
+                      <div 
+                        className={`mega-sidebar-item ${activeCategory === 'packaging' ? 'active' : ''}`}
+                        onMouseEnter={() => setActiveCategory('packaging')}
+                        onClick={() => setActiveCategory('packaging')}
+                      >
+                        <div className="sidebar-num">01</div>
+                        <div className="sidebar-info">
+                          <span className="sidebar-title"><i className="fas fa-box-open sidebar-icon"></i> PACKAGING</span>
+                          <span className="sidebar-sub">Filling, Pouch & Vacuum</span>
+                        </div>
+                        <i className="fas fa-chevron-right sidebar-arrow"></i>
+                      </div>
+
+                      <div 
+                        className={`mega-sidebar-item ${activeCategory === 'sealing' ? 'active' : ''}`}
+                        onMouseEnter={() => setActiveCategory('sealing')}
+                        onClick={() => setActiveCategory('sealing')}
+                      >
+                        <div className="sidebar-num">02</div>
+                        <div className="sidebar-info">
+                          <span className="sidebar-title"><i className="fas fa-tape sidebar-icon"></i> SEALING & CAPPING</span>
+                          <span className="sidebar-sub">Band, Induction & Cap Sealers</span>
+                        </div>
+                        <i className="fas fa-chevron-right sidebar-arrow"></i>
+                      </div>
+
+                      <div 
+                        className={`mega-sidebar-item ${activeCategory === 'wrapping' ? 'active' : ''}`}
+                        onMouseEnter={() => setActiveCategory('wrapping')}
+                        onClick={() => setActiveCategory('wrapping')}
+                      >
+                        <div className="sidebar-num">03</div>
+                        <div className="sidebar-info">
+                          <span className="sidebar-title"><i className="fas fa-layer-group sidebar-icon"></i> WRAPPING & STRAPPING</span>
+                          <span className="sidebar-sub">Stretch, Shrink & Box Strapping</span>
+                        </div>
+                        <i className="fas fa-chevron-right sidebar-arrow"></i>
+                      </div>
+
+                      <div 
+                        className={`mega-sidebar-item ${activeCategory === 'automation' ? 'active' : ''}`}
+                        onMouseEnter={() => setActiveCategory('automation')}
+                        onClick={() => setActiveCategory('automation')}
+                      >
+                        <div className="sidebar-num">04</div>
+                        <div className="sidebar-info">
+                          <span className="sidebar-title"><i className="fas fa-robot sidebar-icon"></i> AUTOMATION & CODING</span>
+                          <span className="sidebar-sub">Labelling, Conveyors & Printers</span>
+                        </div>
+                        <i className="fas fa-chevron-right sidebar-arrow"></i>
+                      </div>
+                    </div>
+
+                    {/* Right Content Grid Panel */}
+                    <div className="mega-menu-content-panel">
+                      {activeCategory === 'packaging' && (
+                        <div className="mega-category-grid">
+                          <div className="mega-group-col">
+                            <div className="group-col-header"><i className="fas fa-fill-drip"></i> Filling Machines</div>
+                            <ul className="group-link-list">
+                              <li><Link href="/filling-machine">Particle - Table Top</Link></li>
+                              <li><Link href="/large-particle-filling-machine">Particle - Floor Standing</Link></li>
+                              <li><Link href="/powder-filling-machine">Powder Type (Auger)</Link></li>
+                              <li><Link href="/liquid-filling-machine">Liquid - Digital Control</Link></li>
+                              <li><Link href="/pneumatic-liquid-filling-machine">Liquid - Pneumatic Type</Link></li>
+                              <li><Link href="/double-nozzle-filling-machine">Double Nozzle Filling</Link></li>
+                              <li><Link href="/paste-filling-machine">Paste Type (Pneumatic)</Link></li>
+                              <li><Link href="/manual-paste-filling-machine">Manual Paste Filling</Link></li>
+                            </ul>
                           </div>
-                        </li>
-                        <li><Link href="/automatic-pouch-packing-machine"><i className="fas fa-shopping-bag mega-menu-icon"></i> Automatic Pouch Packing Machine</Link></li>
-                        <li><Link href="/flow-wrap-machine"><i className="fas fa-box mega-menu-icon"></i> Flow Wrap Machine</Link></li>
-                        <li><Link href="/vacuum-packaging-machine"><i className="fas fa-cube mega-menu-icon"></i> Vacuum Packaging Machine</Link></li>
-                      </ul>
-                    </div>
-                    {/* Column 2 */}
-                    <div className="mega-menu-col">
-                      <div className="mega-menu-col-header">02</div>
-                      <div className="mega-menu-col-title">SEALING</div>
-                      <ul className="mega-menu-list">
-                        <li><Link href="/continuous-band-sealer"><i className="fas fa-tape mega-menu-icon"></i> Continuous Band Sealer</Link></li>
-                        <li><Link href="/induction-sealing-machine"><i className="fas fa-fire mega-menu-icon"></i> Induction Sealing Machine</Link></li>
-                        <li><Link href="/cap-sealing-machine"><i className="fas fa-prescription-bottle mega-menu-icon"></i> Cap Sealing Machine</Link></li>
-                        <li><Link href="/carton-sealing-machine"><i className="fas fa-box-tissue mega-menu-icon"></i> Carton Sealing Machine</Link></li>
-                        <li><Link href="/l-sealing-machine"><i className="fas fa-expand mega-menu-icon"></i> L Sealing Machine</Link></li>
-                      </ul>
-                    </div>
-                    {/* Column 3 */}
-                    <div className="mega-menu-col">
-                      <div className="mega-menu-col-header">03</div>
-                      <div className="mega-menu-col-title">WRAPPING & STRAPPING</div>
-                      <ul className="mega-menu-list">
-                        <li><Link href="/stretch-wrapping-machine"><i className="fas fa-scroll mega-menu-icon"></i> Stretch Wrapping Machine</Link></li>
-                        <li><Link href="/shrink-wrapping-machine"><i className="fas fa-layer-group mega-menu-icon"></i> Shrink Wrapping Machine</Link></li>
-                        <li><Link href="/box-strapping-machine"><i className="fas fa-pallet mega-menu-icon"></i> Box Strapping Machine</Link></li>
-                        <li><Link href="/automatic-carton-packing-line"><i className="fas fa-boxes mega-menu-icon"></i> Auto Carton Packing Line</Link></li>
-                      </ul>
-                    </div>
-                    {/* Column 4 */}
-                    <div className="mega-menu-col">
-                      <div className="mega-menu-col-header">04</div>
-                      <div className="mega-menu-col-title">AUTOMATION & CONVEYING</div>
-                      <ul className="mega-menu-list">
-                        <li><Link href="/bottle-labelling-machine"><i className="fas fa-tag mega-menu-icon"></i> Bottle Labelling Machine</Link></li>
-                        <li><Link href="/conveyor"><i className="fas fa-dolly-flatbed mega-menu-icon"></i> Conveyor</Link></li>
-                        <li><Link href="/coding-machine"><i className="fas fa-barcode mega-menu-icon"></i> Coding Machine</Link></li>
-                      </ul>
+
+                          <div className="mega-group-col">
+                            <div className="group-col-header"><i className="fas fa-shopping-bag"></i> Auto Pouch Packing</div>
+                            <ul className="group-link-list">
+                              <li><Link href="/automatic-pouch-packing-machine">100 Series (Particle)</Link></li>
+                              <li><Link href="/automatic-particle-filling-machine-500">500 Series (Particle)</Link></li>
+                              <li><Link href="/automatic-particle-filling-machine-1000">1000 Series (Particle)</Link></li>
+                              <li><Link href="/automatic-particle-filling-machine-5000">5000 Series (Particle)</Link></li>
+                              <li><Link href="/automatic-particle-filling-machine-four-head">Four Head Series</Link></li>
+                              <li><Link href="/automatic-powder-filling-machine">Powder Series (APF)</Link></li>
+                              <li><Link href="/automatic-paste-filling-machine">Paste Series (AF)</Link></li>
+                              <li><Link href="/automatic-paste-filling-machine-mixer">Paste Series (AFM - Mixer)</Link></li>
+                            </ul>
+                          </div>
+
+                          <div className="mega-group-col">
+                            <div className="group-col-header"><i className="fas fa-box"></i> Flow Wrap & Vacuum</div>
+                            <ul className="group-link-list">
+                              <li><Link href="/flow-wrap-machine">Flow Wrap Machine</Link></li>
+                              <li><Link href="/vacuum-packaging-machine">Single Chamber Vacuum</Link></li>
+                              <li><Link href="/vacuum-packaging-machine-double">Double Chamber Vacuum</Link></li>
+                              <li><Link href="/vacuum-packaging-machine-outside">Outside Chamber Vacuum</Link></li>
+                            </ul>
+                          </div>
+                        </div>
+                      )}
+
+                      {activeCategory === 'sealing' && (
+                        <div className="mega-category-grid">
+                          <div className="mega-group-col">
+                            <div className="group-col-header"><i className="fas fa-tape"></i> Continuous Band Sealer</div>
+                            <ul className="group-link-list">
+                              <li><Link href="/continuous-band-sealer">FR-900 Series</Link></li>
+                              <li><Link href="/continuous-band-sealer-1100">FR-1100 Series</Link></li>
+                            </ul>
+                            <div className="group-col-header" style={{ marginTop: '1.5rem' }}><i className="fas fa-fire"></i> Induction Sealing</div>
+                            <ul className="group-link-list">
+                              <li><Link href="/induction-sealing-machine">Manual Induction Sealer</Link></li>
+                              <li><Link href="/induction-sealing-machine-continuous">Continuous Induction Sealer</Link></li>
+                            </ul>
+                          </div>
+
+                          <div className="mega-group-col">
+                            <div className="group-col-header"><i className="fas fa-prescription-bottle"></i> Cap Sealing Machines</div>
+                            <ul className="group-link-list">
+                              <li><Link href="/cap-sealing-machine">Handheld Capper (HC-50)</Link></li>
+                              <li><Link href="/cap-sealing-machine-desktop">Desktop Capper (DDX-450)</Link></li>
+                              <li><Link href="/cap-sealing-machine-ropp">ROPP Capper (DK-50/D)</Link></li>
+                              <li><Link href="/can-sealing-machine-lt160">Can Sealer (LT-160)</Link></li>
+                            </ul>
+                          </div>
+
+                          <div className="mega-group-col">
+                            <div className="group-col-header"><i className="fas fa-box-tissue"></i> Carton & L-Sealing</div>
+                            <ul className="group-link-list">
+                              <li><Link href="/carton-sealing-machine">Carton Sealing Machine</Link></li>
+                              <li><Link href="/l-sealing-machine">L Sealing Machine</Link></li>
+                            </ul>
+                          </div>
+                        </div>
+                      )}
+
+                      {activeCategory === 'wrapping' && (
+                        <div className="mega-category-grid">
+                          <div className="mega-group-col">
+                            <div className="group-col-header"><i className="fas fa-scroll"></i> Wrapping Machinery</div>
+                            <ul className="group-link-list">
+                              <li><Link href="/stretch-wrapping-machine">Stretch Wrapping Machine</Link></li>
+                              <li><Link href="/shrink-wrapping-machine">Shrink Wrapping Machine</Link></li>
+                              <li><Link href="/box-strapping-machine">Box Strapping Machine</Link></li>
+                            </ul>
+                          </div>
+
+                          <div className="mega-group-col" style={{ gridColumn: 'span 2' }}>
+                            <div className="group-col-header"><i className="fas fa-boxes"></i> Auto Carton Packing Line</div>
+                            <ul className="group-link-list grid-2-col">
+                              <li><Link href="/automatic-carton-packing-line">Complete Auto Line Overview</Link></li>
+                              <li><Link href="/case-erector">Case Erector (CF-20TX)</Link></li>
+                              <li><Link href="/auto-flap-carton-sealer">Auto Flap Sealer (CF-20TX)</Link></li>
+                              <li><Link href="/edge-sealing-machine">Edge Sealer (MH-FJ-P1)</Link></li>
+                              <li><Link href="/automatic-strapping-machine">Strapping Machine (MH-102A)</Link></li>
+                            </ul>
+                          </div>
+                        </div>
+                      )}
+
+                      {activeCategory === 'automation' && (
+                        <div className="mega-category-grid">
+                          <div className="mega-group-col">
+                            <div className="group-col-header"><i className="fas fa-tag"></i> Bottle Labelling</div>
+                            <ul className="group-link-list">
+                              <li><Link href="/bottle-labelling-machine">Semi Auto Labelling</Link></li>
+                              <li><Link href="/bottle-labelling-machine-auto">Automatic Labelling</Link></li>
+                            </ul>
+                            <div className="group-col-header" style={{ marginTop: '1.5rem' }}><i className="fas fa-dolly-flatbed"></i> Conveyors & Feeders</div>
+                            <ul className="group-link-list">
+                              <li><Link href="/conveyor">Standard Conveyors (CB)</Link></li>
+                              <li><Link href="/paging-machine">Paging Machine (CPM-300)</Link></li>
+                            </ul>
+                          </div>
+
+                          <div className="mega-group-col" style={{ gridColumn: 'span 2' }}>
+                            <div className="group-col-header"><i className="fas fa-barcode"></i> Coding & Marking Printers</div>
+                            <ul className="group-link-list grid-2-col">
+                              <li><Link href="/coding-machine">Online Ribbon Coding (HP-241G)</Link></li>
+                              <li><Link href="/coding-machine-tij">Thermal Inkjet (QM Series)</Link></li>
+                              <li><Link href="/coding-machine-tij-7000">Thermal Inkjet (7000 Series)</Link></li>
+                              <li><Link href="/coding-machine-cij">Continuous Inkjet (CIJ)</Link></li>
+                            </ul>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
               </div>
+
               <Link href="/gallery">Gallery</Link>
               <Link href="/contact">Contact Us</Link>
             </div>
@@ -129,7 +265,7 @@ export default function Navbar() {
       <div className={`mobile-sidebar-overlay ${isMobileMenuOpen ? 'open' : ''}`} onClick={closeMobileMenu}></div>
       <div className={`mobile-sidebar ${isMobileMenuOpen ? 'open' : ''}`}>
         <div className="mobile-sidebar-header">
-          <img src="/logo.png" alt="Bhawani Machines Logo" style={{ height: '40px' }} />
+          <img src="/logo_01.png" alt="Bhawani Machines Logo" style={{ height: '40px' }} />
           <button className="close-sidebar-btn" onClick={closeMobileMenu}>
             <i className="fas fa-times"></i>
           </button>
@@ -148,17 +284,33 @@ export default function Navbar() {
               <Link href="/powder-filling-machine" onClick={closeMobileMenu}>Powder Filling Machine</Link>
               <Link href="/liquid-filling-machine" onClick={closeMobileMenu}>Liquid Filling (Digital)</Link>
               <Link href="/pneumatic-liquid-filling-machine" onClick={closeMobileMenu}>Liquid Filling (Pneumatic)</Link>
-              <Link href="/paste-filling-machine" onClick={closeMobileMenu}>Paste Filling Machine</Link>
-              <Link href="/automatic-pouch-packing-machine" onClick={closeMobileMenu}>Auto Pouch Packing Machine</Link>
+              <Link href="/double-nozzle-filling-machine" onClick={closeMobileMenu}>Double Nozzle Filling</Link>
+              <Link href="/paste-filling-machine" onClick={closeMobileMenu}>Paste Filling Machine (Pneumatic)</Link>
+              <Link href="/manual-paste-filling-machine" onClick={closeMobileMenu}>Manual Paste Filling</Link>
+              <Link href="/automatic-pouch-packing-machine" onClick={closeMobileMenu}>Auto Pouch Packing (100 Series)</Link>
+              <Link href="/automatic-particle-filling-machine-500" onClick={closeMobileMenu}>Auto Pouch Packing (500 Series)</Link>
+              <Link href="/automatic-particle-filling-machine-1000" onClick={closeMobileMenu}>Auto Pouch Packing (1000 Series)</Link>
+              <Link href="/automatic-particle-filling-machine-5000" onClick={closeMobileMenu}>Auto Pouch Packing (5000 Series)</Link>
+              <Link href="/automatic-particle-filling-machine-four-head" onClick={closeMobileMenu}>Auto Pouch Packing (Four Head)</Link>
+              <Link href="/automatic-powder-filling-machine" onClick={closeMobileMenu}>Auto Powder Packing (APF)</Link>
+              <Link href="/automatic-paste-filling-machine" onClick={closeMobileMenu}>Auto Paste Packing (AF)</Link>
+              <Link href="/automatic-paste-filling-machine-mixer" onClick={closeMobileMenu}>Auto Paste Packing (AFM)</Link>
               <Link href="/flow-wrap-machine" onClick={closeMobileMenu}>Flow Wrap Machine</Link>
-              <Link href="/vacuum-packaging-machine" onClick={closeMobileMenu}>Vacuum Packaging Machine</Link>
+              <Link href="/vacuum-packaging-machine" onClick={closeMobileMenu}>Vacuum Packaging (Single Chamber)</Link>
+              <Link href="/vacuum-packaging-machine-double" onClick={closeMobileMenu}>Vacuum Packaging (Double Chamber)</Link>
+              <Link href="/vacuum-packaging-machine-outside" onClick={closeMobileMenu}>Vacuum Packaging (Outside Chamber)</Link>
             </div>
 
             <div className="mobile-sub-group">
               <div className="mobile-sub-heading">Sealing</div>
-              <Link href="/continuous-band-sealer" onClick={closeMobileMenu}>Continuous Band Sealer</Link>
-              <Link href="/induction-sealing-machine" onClick={closeMobileMenu}>Induction Sealing Machine</Link>
-              <Link href="/cap-sealing-machine" onClick={closeMobileMenu}>Cap Sealing Machine</Link>
+              <Link href="/continuous-band-sealer" onClick={closeMobileMenu}>Continuous Band Sealer (FR-900)</Link>
+              <Link href="/continuous-band-sealer-1100" onClick={closeMobileMenu}>Continuous Band Sealer (FR-1100)</Link>
+              <Link href="/induction-sealing-machine" onClick={closeMobileMenu}>Induction Sealer (Manual)</Link>
+              <Link href="/induction-sealing-machine-continuous" onClick={closeMobileMenu}>Induction Sealer (Continuous)</Link>
+              <Link href="/cap-sealing-machine" onClick={closeMobileMenu}>Cap Sealing (Handheld HC-50)</Link>
+              <Link href="/cap-sealing-machine-desktop" onClick={closeMobileMenu}>Cap Sealing (Desktop DDX-450)</Link>
+              <Link href="/cap-sealing-machine-ropp" onClick={closeMobileMenu}>ROPP Capper (DK-50/D)</Link>
+              <Link href="/can-sealing-machine-lt160" onClick={closeMobileMenu}>Can Sealer (LT-160)</Link>
               <Link href="/carton-sealing-machine" onClick={closeMobileMenu}>Carton Sealing Machine</Link>
               <Link href="/l-sealing-machine" onClick={closeMobileMenu}>L Sealing Machine</Link>
             </div>
@@ -168,14 +320,25 @@ export default function Navbar() {
               <Link href="/stretch-wrapping-machine" onClick={closeMobileMenu}>Stretch Wrapping Machine</Link>
               <Link href="/shrink-wrapping-machine" onClick={closeMobileMenu}>Shrink Wrapping Machine</Link>
               <Link href="/box-strapping-machine" onClick={closeMobileMenu}>Box Strapping Machine</Link>
-              <Link href="/automatic-carton-packing-line" onClick={closeMobileMenu}>Auto Carton Packing Line</Link>
+              <Link href="/automatic-carton-packing-line" onClick={closeMobileMenu} style={{ fontWeight: '600' }}>Auto Carton Packing Line</Link>
+              <div style={{ paddingLeft: '15px' }}>
+                <Link href="/case-erector" onClick={closeMobileMenu}>- Case Erector</Link>
+                <Link href="/auto-flap-carton-sealer" onClick={closeMobileMenu}>- Auto Flap Sealer</Link>
+                <Link href="/edge-sealing-machine" onClick={closeMobileMenu}>- Edge Sealer</Link>
+                <Link href="/automatic-strapping-machine" onClick={closeMobileMenu}>- Strapping Machine</Link>
+              </div>
             </div>
 
             <div className="mobile-sub-group">
               <div className="mobile-sub-heading">Automation & Conveying</div>
-              <Link href="/bottle-labelling-machine" onClick={closeMobileMenu}>Bottle Labelling Machine</Link>
-              <Link href="/conveyor" onClick={closeMobileMenu}>Conveyor</Link>
-              <Link href="/coding-machine" onClick={closeMobileMenu}>Coding Machine</Link>
+              <Link href="/bottle-labelling-machine" onClick={closeMobileMenu}>Bottle Labelling (Semi Auto)</Link>
+              <Link href="/bottle-labelling-machine-auto" onClick={closeMobileMenu}>Bottle Labelling (Automatic)</Link>
+              <Link href="/conveyor" onClick={closeMobileMenu}>Standard Conveyors</Link>
+              <Link href="/paging-machine" onClick={closeMobileMenu}>Paging Machine (Friction Feeder)</Link>
+              <Link href="/coding-machine" onClick={closeMobileMenu}>Online Ribbon Coding</Link>
+              <Link href="/coding-machine-tij" onClick={closeMobileMenu}>Thermal Inkjet (QM Series)</Link>
+              <Link href="/coding-machine-tij-7000" onClick={closeMobileMenu}>Thermal Inkjet (7000 Series)</Link>
+              <Link href="/coding-machine-cij" onClick={closeMobileMenu}>Continuous Inkjet (CIJ)</Link>
             </div>
           </div>
           
