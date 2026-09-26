@@ -58,8 +58,9 @@ export default function Home() {
       description: "Heavy-duty wrapping and strapping machines for securing boxes, pallets, and cartons during warehousing, transit, and distribution.",
       link: "/stretch-wrapping-machine",
       list: [
-        "Pallet Stretch Wrapping Machines",
-        "Heat Shrink Wrapping Machines",
+        "Box & Carton Stretch Wrapping Machines (DBC-800 Series)",
+        "Heat Shrink Wrapping Machines (BS & BSG Series)",
+        "Web Sealer with Shrink Tunnel (LT-5040 A & BSE-6040)",
         "Semi & Automatic Box Strapping Machines",
         "Automated Carton Packing Lines (Erector & Sealer)"
       ]

@@ -197,6 +197,7 @@ export default function Navbar() {
                             <ul className="group-link-list">
                               <li><Link href="/stretch-wrapping-machine">Stretch Wrapping Machine</Link></li>
                               <li><Link href="/shrink-wrapping-machine">Shrink Wrapping Machine</Link></li>
+                              <li><Link href="/web-sealer-machine">Web Sealer Machine</Link></li>
                               <li><Link href="/box-strapping-machine">Box Strapping Machine</Link></li>
                             </ul>
                           </div>
@@ -319,6 +320,7 @@ export default function Navbar() {
               <div className="mobile-sub-heading">Wrapping & Strapping</div>
               <Link href="/stretch-wrapping-machine" onClick={closeMobileMenu}>Stretch Wrapping Machine</Link>
               <Link href="/shrink-wrapping-machine" onClick={closeMobileMenu}>Shrink Wrapping Machine</Link>
+              <Link href="/web-sealer-machine" onClick={closeMobileMenu}>Web Sealer Machine</Link>
               <Link href="/box-strapping-machine" onClick={closeMobileMenu}>Box Strapping Machine</Link>
               <Link href="/automatic-carton-packing-line" onClick={closeMobileMenu} style={{ fontWeight: '600' }}>Auto Carton Packing Line</Link>
               <div style={{ paddingLeft: '15px' }}>
