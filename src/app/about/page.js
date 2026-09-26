@@ -26,7 +26,10 @@ export default function AboutPage() {
     <div className="about-page">
 
       {/* ── Hero ── */}
-      <section className="about-page-hero">
+      <section 
+        className="about-page-hero"
+        style={{ backgroundImage: "url('/about_hero_01111.png')" }}
+      >
         <div className="about-hero-inner">
           <nav className="about-breadcrumb">
             <Link href="/">Home</Link> <span>/</span> <span>About Us</span>

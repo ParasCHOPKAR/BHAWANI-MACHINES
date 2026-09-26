@@ -2,6 +2,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import FloatingButtons from "@/components/FloatingButtons";
 import Navbar from "@/components/Navbar";
+import ScrollAnimations from "@/components/ScrollAnimations";
 const inter = Inter({ subsets: ["latin"] });
 const playfair = Playfair_Display({ subsets: ["latin"], weight: ["400", "600", "700"], variable: '--font-playfair' });
 
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" />
       </head>
       <body className={`${inter.className} ${playfair.variable}`}>
+        <ScrollAnimations />
         <Navbar />
         <main>{children}</main>
         <Footer />

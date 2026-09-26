@@ -21,35 +21,111 @@ export default function Home() {
   const categories = [
     {
       number: "01",
-      subtitle: "Fast & Accurate",
-      title: "Packaging",
-      description: "A wide range of packaging solutions including filling, pouch packing, and vacuum packing machines to streamline your packaging process.",
+      icon: "fa-box-open",
+      title: "PACKAGING",
+      subtitle: "Filling, Pouch & Vacuum",
+      image: "/packing_machine_home_01.png",
+      description: "High-speed precision filling, automatic pouch packaging, flow wrapping, and vacuum preservation equipment built for high-throughput factory lines.",
       link: "/automatic-pouch-packing-machine",
-      list: ["Filling Machine", "Automatic Pouch Packing Machine", "Flow Wrap Machine", "Vacuum Packaging Machine"]
+      list: [
+        "Filling Machines (Particle, Powder, Liquid & Paste)",
+        "Automatic Pouch Packing Machines (100 - 5000 Series)",
+        "Flow Wrap Horizontal Packaging Machines",
+        "Vacuum Packaging Machines (Single, Double & Outside)"
+      ]
     },
     {
       number: "02",
-      subtitle: "Secure & Tight",
-      title: "Sealing",
-      description: "Reliable sealing equipment designed for secure closure of pouches, bottles, and cartons to ensure product safety and longevity.",
+      icon: "fa-tape",
+      title: "SEALING & CAPPING",
+      subtitle: "Band, Induction & Cap Sealers",
+      image: "/siling_machine_home_01.png",
+      description: "Heavy-duty continuous band sealers, electromagnetic induction foil sealers, ROPP cappers, and industrial carton & L-sealing systems.",
       link: "/continuous-band-sealer",
-      list: ["Continuous Band Sealer", "Induction Sealing Machine", "Cap Sealing Machine", "Carton Sealing Machine", "L Sealing Machine"]
+      list: [
+        "Continuous Band Sealers (FR-900 & FR-1100 Series)",
+        "Induction Foil Sealers (Manual & Continuous Line)",
+        "Cap Sealing & ROPP Capping Machinery",
+        "Carton Sealing & L-Sealing Machines"
+      ]
     },
     {
       number: "03",
-      subtitle: "Safe Transit",
-      title: "Wrapping & Strapping",
-      description: "Heavy-duty wrapping and strapping machines for securing boxes, pallets, and cartons during storage and transportation.",
+      icon: "fa-layer-group",
+      title: "WRAPPING & STRAPPING",
+      subtitle: "Stretch, Shrink & Box Strapping",
+      image: "/wrapping_machine_home_01.png",
+      description: "Heavy-duty wrapping and strapping machines for securing boxes, pallets, and cartons during warehousing, transit, and distribution.",
       link: "/stretch-wrapping-machine",
-      list: ["Stretch Wrapping Machine", "Shrink Wrapping Machine", "Box Strapping Machine", "Auto Carton Packing Line"]
+      list: [
+        "Pallet Stretch Wrapping Machines",
+        "Heat Shrink Wrapping Machines",
+        "Semi & Automatic Box Strapping Machines",
+        "Automated Carton Packing Lines (Erector & Sealer)"
+      ]
     },
     {
       number: "04",
-      subtitle: "High Efficiency",
-      title: "Automation & Conveying",
-      description: "Advanced automation solutions including coding, labelling, and conveyor systems for continuous high-speed production lines.",
+      icon: "fa-robot",
+      title: "AUTOMATION & CODING",
+      subtitle: "Labelling, Conveyors & Printers",
+      image: "/Labbeling_machine_home_01.png",
+      description: "Industrial continuous inkjet (CIJ) & thermal inkjet (TIJ) date coding printers, automatic bottle labelling, and modular conveyors.",
       link: "/conveyor",
-      list: ["Bottle Labelling Machine", "Conveyor Systems", "Coding Machine"]
+      list: [
+        "Semi & Automatic Bottle Labelling Machines",
+        "Continuous & Thermal Inkjet Printers (TIJ & CIJ)",
+        "Standard Industrial Flat Belt Conveyors",
+        "Automatic Paging & Feeding Machinery"
+      ]
+    }
+  ];
+
+  const popularProducts = [
+    {
+      badge: "🔥 #1 Best Seller",
+      image: "/packing_machine_home_01.png",
+      title: "Automatic Pouch Packing Machine",
+      category: "Form-Fill-Seal Packaging Line",
+      rating: "4.9",
+      reviews: 128,
+      features: [
+        "Multi-Head High Accuracy Weighing & Packing",
+        "Granules, Powders, Seeds, Snacks & Pulses",
+        "High Speed: 20-60 Pouches/Min Continuous Sealing",
+        "Smart Touchscreen PLC Digital Control"
+      ],
+      link: "/automatic-pouch-packing-machine"
+    },
+    {
+      badge: "⭐ Top Rated",
+      image: "/siling_machine_home_01.png",
+      title: "Continuous Band Sealer",
+      category: "FR-900 & FR-1100 Series",
+      rating: "4.9",
+      reviews: 142,
+      features: [
+        "Heavy-Duty Continuous Conveyorized Sealing",
+        "Integrated Solid-Ink Batch & Expiry Coding",
+        "Precision Digital Temp Controller (0-300°C)",
+        "Aluminium Foil, Plastic & Multi-layer Pouches"
+      ],
+      link: "/continuous-band-sealer"
+    },
+    {
+      badge: "⚡ High Demand",
+      image: "/Labbeling_machine_home_01.png",
+      title: "Semi-Automatic Bottle Labelling Machine",
+      category: "Precision Round Bottle Labeller",
+      rating: "4.8",
+      reviews: 96,
+      features: [
+        "Spot-On Optical Fiber Sensor Positioning",
+        "High Speed Output: Up to 50 Bottles/Minute",
+        "PET, Glass, Metal & HDPE Round Containers",
+        "Adjustable Bottle Diameter: 15mm – 120mm"
+      ],
+      link: "/bottle-labelling-machine"
     }
   ];
 
@@ -210,53 +286,36 @@ export default function Home() {
           </div>
           
           <div className="best-sellers-grid">
-            <div className="product-card">
-              <div className="product-badge">🔥 #1 Best Seller</div>
-              <div className="product-img-placeholder"><i className="fas fa-hamburger"></i></div>
-              <div className="product-content">
-                <div className="product-rating"><i className="fas fa-star"></i> <span>4.9</span> (128 reviews)</div>
-                <h3 className="product-title">Chapati Making Machine</h3>
-                <ul className="product-features">
-                  <li><i className="fas fa-chevron-right"></i> Fully Automatic | 1000+ Chapatis/Hr</li>
-                  <li><i className="fas fa-chevron-right"></i> Food-Grade Stainless Steel</li>
-                  <li><i className="fas fa-chevron-right"></i> Adjustable Thickness & Size</li>
-                  <li><i className="fas fa-chevron-right"></i> Low Power Consumption</li>
-                </ul>
-                <a href="#contact" className="btn btn-outline product-btn">Get Best Quote</a>
+            {popularProducts.map((product, idx) => (
+              <div className="product-card" key={idx}>
+                <div className="product-badge">{product.badge}</div>
+                <div className="product-img-box">
+                  <img 
+                    src={product.image} 
+                    alt={product.title} 
+                    className="product-card-img" 
+                    loading="lazy" 
+                  />
+                </div>
+                <div className="product-content">
+                  <div className="product-rating">
+                    <i className="fas fa-star"></i> <span>{product.rating}</span> ({product.reviews} reviews)
+                  </div>
+                  <span className="product-cat-tag">{product.category}</span>
+                  <h3 className="product-title">{product.title}</h3>
+                  <ul className="product-features">
+                    {product.features.map((feat, fIdx) => (
+                      <li key={fIdx}><i className="fas fa-check-circle"></i> {feat}</li>
+                    ))}
+                  </ul>
+                  <div className="product-card-actions">
+                    <a href="#contact" className="btn btn-primary product-btn" style={{ width: '100%', justifyContent: 'center' }}>
+                      Get a Quote <i className="fas fa-arrow-right" style={{ marginLeft: '6px' }}></i>
+                    </a>
+                  </div>
+                </div>
               </div>
-            </div>
-
-            <div className="product-card">
-              <div className="product-badge">⭐ Top Rated</div>
-              <div className="product-img-placeholder"><i className="fas fa-seedling"></i></div>
-              <div className="product-content">
-                <div className="product-rating"><i className="fas fa-star"></i> <span>4.8</span> (96 reviews)</div>
-                <h3 className="product-title">Atta Plant</h3>
-                <ul className="product-features">
-                  <li><i className="fas fa-chevron-right"></i> Complete Turnkey Flour Mill Solution</li>
-                  <li><i className="fas fa-chevron-right"></i> Fully Automatic Operation</li>
-                  <li><i className="fas fa-chevron-right"></i> Cleaning & Grinding System</li>
-                  <li><i className="fas fa-chevron-right"></i> High Output Capacity</li>
-                </ul>
-                <a href="#contact" className="btn btn-outline product-btn">Get Best Quote</a>
-              </div>
-            </div>
-
-            <div className="product-card">
-              <div className="product-badge">📦 High Demand</div>
-              <div className="product-img-placeholder"><i className="fas fa-box"></i></div>
-              <div className="product-content">
-                <div className="product-rating"><i className="fas fa-star"></i> <span>4.7</span> (84 reviews)</div>
-                <h3 className="product-title">Packaging Machine</h3>
-                <ul className="product-features">
-                  <li><i className="fas fa-chevron-right"></i> Multi-Head Weigher | Pouch Packing</li>
-                  <li><i className="fas fa-chevron-right"></i> Auto Pouch Fill & Seal</li>
-                  <li><i className="fas fa-chevron-right"></i> Touch Screen PLC Control</li>
-                  <li><i className="fas fa-chevron-right"></i> Multiple Bag Sizes</li>
-                </ul>
-                <a href="#contact" className="btn btn-outline product-btn">Get Best Quote</a>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -273,18 +332,46 @@ export default function Home() {
           <div className="categories-grid-new">
             {categories.map((cat, idx) => (
               <div className="category-item" key={idx}>
-                <div className="cat-number">{cat.number}</div>
+                <div className="cat-top-bar">
+                  <div className="cat-badge-wrap">
+                    <span className="cat-num-tag">{cat.number}</span>
+                    <div className="cat-icon-box">
+                      <i className={`fas ${cat.icon}`}></i>
+                    </div>
+                  </div>
+                  <div className="cat-number-bg">{cat.number}</div>
+                </div>
+
+                {cat.image && (
+                  <Link href={cat.link} className="cat-image-link" title={`View ${cat.title} Products`}>
+                    <div className="cat-image-box">
+                      <img 
+                        src={cat.image} 
+                        alt={`${cat.title} - ${cat.subtitle}`} 
+                        className="cat-image" 
+                        loading="lazy" 
+                      />
+                    </div>
+                  </Link>
+                )}
+
                 <div className="cat-header">
                   <span className="cat-subtitle">{cat.subtitle}</span>
-                  <h3 className="cat-title">{cat.title}</h3>
+                  <Link href={cat.link} className="cat-title-link">
+                    <h3 className="cat-title">{cat.title}</h3>
+                  </Link>
                 </div>
                 <p className="cat-desc">{cat.description}</p>
                 <ul className="cat-list">
                   {cat.list.map((item, i) => (
-                    <li key={i}><i className="fas fa-check"></i> {item}</li>
+                    <li key={i}><i className="fas fa-check-circle"></i> {item}</li>
                   ))}
                 </ul>
-                <Link href={cat.link} className="cat-link">View Products &rarr;</Link>
+                <div className="cat-card-actions">
+                  <a href="#contact" className="btn btn-primary cat-quote-btn">
+                    Get a Quote <i className="fas fa-arrow-right"></i>
+                  </a>
+                </div>
               </div>
             ))}
           </div>
